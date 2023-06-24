@@ -28,6 +28,12 @@ export default function Jobs(props) {
     url: "",
   });
 
+
+  // reverse jobs 
+
+  const reverseJobs=async ()=>{
+    await setReversedJobs(jobs.revrese());
+  }
   // handling onChange
 
   const handleAddJobInputDataOnChange = (e) => {
@@ -73,7 +79,7 @@ export default function Jobs(props) {
       const addingJobsJson = await addingJobsResponse.json();
       if (addingJobsJson.success) {
         getJobs();
-        setReversedJobs(jobs.reverse());
+        reversedJobs();
         toast.success(addingJobsJson.message, {
           toastId: "jobAdded",
         });
@@ -112,7 +118,7 @@ export default function Jobs(props) {
         toastId:"DeletedJob"
       })
       getJobs();
-      setReversedJobs(jobs.reverse());
+      reversedJobs();
     }
     else{
       toast.error(deleteJobJson.error,{
@@ -128,7 +134,7 @@ export default function Jobs(props) {
     ) {
       window.scroll(0, 0);
       getJobs();
-      setReversedJobs(jobs.reverse());
+      reversedJobs();
     } else {
       navigate("/");
     }
