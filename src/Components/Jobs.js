@@ -124,7 +124,9 @@ export default function Jobs(props) {
       localStorage.getItem("adminAuthToken")
     ) {
       window.scroll(0, 0);
-      getJobs();
+      if(jobs.length===0){
+        getJobs();
+      }
     } else {
       navigate("/");
     }
