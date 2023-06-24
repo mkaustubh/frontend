@@ -73,6 +73,7 @@ export default function Jobs(props) {
       const addingJobsJson = await addingJobsResponse.json();
       if (addingJobsJson.success) {
         getJobs();
+        setReversedJobs(jobs.reverse());
         toast.success(addingJobsJson.message, {
           toastId: "jobAdded",
         });
@@ -111,6 +112,7 @@ export default function Jobs(props) {
         toastId:"DeletedJob"
       })
       getJobs();
+      setReversedJobs(jobs.reverse());
     }
     else{
       toast.error(deleteJobJson.error,{
