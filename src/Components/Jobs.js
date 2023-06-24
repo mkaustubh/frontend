@@ -28,11 +28,8 @@ export default function Jobs(props) {
   });
 
 
-  // reverse jobs 
 
-  const reverseJobs=async ()=>{
-    await setReversedJobs(jobs.revrese());
-  }
+
   // handling onChange
 
   const handleAddJobInputDataOnChange = (e) => {
