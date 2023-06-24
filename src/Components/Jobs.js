@@ -14,7 +14,6 @@ export default function Jobs(props) {
   const navigate = useNavigate();
   const context = useContext(resourcesContext);
   const { jobs, getJobs } = context;
-  const [reversedJobs,setReversedJobs]=useState([]);
   const closeAddJobModalref = useRef();
   // this data is for adding the new job
   const [addJobInputData, setAddJobInputData] = useState({
@@ -79,7 +78,6 @@ export default function Jobs(props) {
       const addingJobsJson = await addingJobsResponse.json();
       if (addingJobsJson.success) {
         getJobs();
-        reversedJobs();
         toast.success(addingJobsJson.message, {
           toastId: "jobAdded",
         });
@@ -118,7 +116,6 @@ export default function Jobs(props) {
         toastId:"DeletedJob"
       })
       getJobs();
-      reversedJobs();
     }
     else{
       toast.error(deleteJobJson.error,{
@@ -134,7 +131,7 @@ export default function Jobs(props) {
     ) {
       window.scroll(0, 0);
       getJobs();
-      reversedJobs();
+      
     } else {
       navigate("/");
     }
@@ -155,7 +152,7 @@ export default function Jobs(props) {
         )}
 
         <div className="row d-flex justify-content-center videosSection">
-          {reversedJobs.map((element, index) => {
+          {jobs.reverse().map((element, index) => {
             return (
               <div key={element.url} className="card col-md-2">
                 <div className="card-body">
