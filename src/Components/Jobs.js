@@ -149,7 +149,7 @@ export default function Jobs(props) {
         )}
 
         <div className="row d-flex justify-content-center videosSection">
-          {jobs.reverse().map((element, index) => {
+          {jobs.map((element, index) => {
             return (
               <div key={element.url} className="card col-md-2">
                 <div className="card-body">
