@@ -14,6 +14,7 @@ export default function Jobs(props) {
   const navigate = useNavigate();
   const context = useContext(resourcesContext);
   const { jobs, getJobs } = context;
+  const [reversedJobs,setReversedJobs]=useState([]);
   const closeAddJobModalref = useRef();
   // this data is for adding the new job
   const [addJobInputData, setAddJobInputData] = useState({
@@ -124,9 +125,8 @@ export default function Jobs(props) {
       localStorage.getItem("adminAuthToken")
     ) {
       window.scroll(0, 0);
-      if(jobs.length===0){
-        getJobs();
-      }
+      getJobs();
+      setReversedJobs(jobs.reverse());
     } else {
       navigate("/");
     }
@@ -147,7 +147,7 @@ export default function Jobs(props) {
         )}
 
         <div className="row d-flex justify-content-center videosSection">
-          {jobs.reverse().map((element, index) => {
+          {reversedJobs.map((element, index) => {
             return (
               <div key={element.url} className="card col-md-2">
                 <div className="card-body">
