@@ -55,7 +55,7 @@ export default function Footer(props) {
 
                 <ul className="list-unstyled">
                   <li>
-                    <Link to="/">
+                    <Link to="/about">
                       About us
                     </Link>
                   </li>

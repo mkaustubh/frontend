@@ -19,6 +19,7 @@ import AdminLoginPage from "./Components/AdminLoginPage";
 import Algorithm from "./Components/Algorithm";
 import Pointers from "./Components/Pointers";
 import Jobs from "./Components/Jobs";
+import About from "./Components/About";
 
 function App() {
 
@@ -171,6 +172,11 @@ document.addEventListener("visibilitychange", handleVisibilityChange, false);
               exact
               path="/question-papers-notes"
               element={<QuestionPapers setProgress={setProgress} base_url={base_url} />}
+            />
+            <Route
+              exact
+              path="/about"
+              element={<About setProgress={setProgress} />}
             />
            
           </Routes>
